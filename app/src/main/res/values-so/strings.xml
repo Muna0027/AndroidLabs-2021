@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Lab 2</string>
+    <string name="hello_message">Aduunka waad salaaman tahay!</string>
+    <string name="ButtonText">Waxaan ahay badhan!
+</string>
+    <string name="click_here">Halkan guji!</string>
+    <string name="check_this_out">Fiiri tan!</string>
+    <string name="toast_message">Waa tan macluumaad dheeri ah</string>
+    <string name="checkedOn">"Sanduuqa wax lagu xusho ayaa la xushay"</string>
+    <string name="checkedOff">"Sanduuqa hubinta lama dooran"</string>
+    <string name="switcedOn">"Beddelka ayaa hadda daaran"</string>
+    <string name="switcedOff">"Beddelka hadda waa la xiray"</string>
+    <string name="look_at_my_gui">Eeg GUI-ga</string>
+    <string name="switchName">"Daar / Demi"</string>
+    <string name="type_here">"Ku qor halkan"</string>
+    <string name="undo">"Ka noqo"</string>
+</resources>

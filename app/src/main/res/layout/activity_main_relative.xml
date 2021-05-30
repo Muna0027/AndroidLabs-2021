@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/look_at_my_gui"
+        android:textSize="30sp"
+        android:id="@+id/TextView"/>
+
+    <Button
+        android:id="@+id/myButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/click_here"
+        android:layout_below="@id/TextView"/>
+
+    <CheckBox
+        android:id="@+id/checked"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/check_this_out"
+        android:layout_toRightOf="@id/myButton"
+        android:layout_below="@id/TextView"/>
+
+    <ImageButton
+        android:id="@+id/imgButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/flag"
+        android:layout_below="@+id/myButton"
+        android:background="#0000"/>
+
+    <Switch
+        android:id="@+id/switched"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/switchName"
+        android:layout_toRightOf="@id/imgButton"
+        android:layout_below="@id/checked"/>
+
+    <EditText
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/type_here"
+        android:inputType="textPersonName"
+        android:layout_below="@+id/imgButton"
+        android:layout_gravity="fill"/>
+
+</RelativeLayout>
