@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Lab 2</string>
-    <string name="hello_message">Hello World!</string>
-    <string name="ButtonText">I\'m a Button!</string>
-    <string name="click_here">Click Here</string>
-    <string name="check_this_out">Check this out!</string>
+    <string name="app_name">Lab 2 Eh</string>
+    <string name="hello_message"> Hey there baud!!</string>
+    <string name="ButtonText">I\'m a Button eh!</string>
+    <string name="click_here">Click Here!!!!!!!!!!!!!!!!</string>
+    <string name="check_this_out">Check this out!!!!!!!!!!!</string>
     <string name="toast_message">Here is more information</string>
-    <string name="checkedOn">"The checkbox is selected"</string>
-    <string name="checkedOff">"The checkbox is not selected"</string>
-    <string name="switcedOn">"The switch is now On"</string>
-    <string name="switcedOff">"The switch is now Off"</string>
+    <string name="checkedOn">"The checkbox is selected!!!!"</string>
+    <string name="checkedOff">"The checkbox is not selected!!!!"</string>
+    <string name="switcedOn">"The switch is now On!!!!"</string>
+    <string name="switcedOff">"The switch is now Off!!!!"</string>
     <string name="look_at_my_gui">Look at my GUI</string>
     <string name="switchName">"Switch On / Off "</string>
-    <string name="type_here">"Type Here"</string>
-    <string name="undo">"Undo"</string>
+    <string name="type_here">Type Here</string>
+    <string name="undo">"UNDO"</string>
     <string name="enter_your_email_address">Enter your email address:</string>
     <string name="type_email_here">Type Email Here</string>
     <string name="type_your_password">Type your password:</string>
