@@ -14,4 +14,24 @@
     <string name="switchName">"Switch On / Off "</string>
     <string name="type_here">"Type Here"</string>
     <string name="undo">"Undo"</string>
+    <string name="login">"email"</string>
+    <string name="type_your_password">"Type in password"</string>
+    <string name="type_email_here">"type in email"</string>
+    <string name="type_your_email_address">"Type in email"</string>
+    <string name="enter_your_email_address">"Enter your email"</string>
+    <string name="your_profile">"profile"</string>
+    <string name="your_name">"Name"</string>
+    <string name="enter_your_name">"Enter Name"</string>
+    <string name="your_email">"Type in your email"</string>
+    <string name="enter_your_email">"Enter email"</string>
+    <string name="your_picture">"Add picture"</string>
+    <string name="click_the_button_above_to_take_a_picture">"click the button above to take a picture""</string>
+    <string name="message_send">"send message"</string>
+    <string name="message_receive">"receive message"</string>
+    <string name="send">"send message"</string>
+    <string name="receive">"receive message"</string>
+    <string name="go_to_chat">"go to chat"</string>
+
+
+
 </resources>

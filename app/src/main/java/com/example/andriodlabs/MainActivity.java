@@ -1,43 +1,78 @@
 package com.example.andriodlabs;
 
-
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.Button;
-import android.widget.CheckBox;
-import android.widget.ImageButton;
-import android.widget.Switch;
-import android.widget.Toast;
-import com.google.android.material.snackbar.Snackbar;
+import android.widget.EditText;
+
 
 public class MainActivity extends AppCompatActivity {
+
+    SharedPreferences prefs = null;
+    EditText email;
+    public static final String ACTIVITY_NAME = "MAIN_ACTIVITY";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main_relative);
+        setContentView(R.layout.activity_main_login);
 
-        Button myButton = findViewById(R.id.myButton);
-        myButton.setOnClickListener( v -> Toast.makeText(MainActivity.this, getResources().getString(R.string.toast_message), Toast.LENGTH_LONG).show());
+        prefs = getSharedPreferences("FileName", Context.MODE_PRIVATE);
+        String savedString = prefs.getString("FileName", "");
 
-        CheckBox myCheckBox = findViewById(R.id.checked);
-        myCheckBox.setOnCheckedChangeListener( (checkboxView, checked) -> {
-            Snackbar.make(checkboxView, checked ? R.string.checkedOn : R.string.checkedOff , Snackbar.LENGTH_LONG)
-                    .setAction(R.string.undo, v -> myCheckBox.setChecked(!checked))
-                    .show();
+        Button loginButton = findViewById(R.id.login);
+        email = findViewById(R.id.email);
+        email.setText(savedString);
+
+        loginButton.setOnClickListener( e -> {
+            Intent goToProfile = new Intent(MainActivity.this, ProfileActivity.class);
+            String em = email.getText().toString();
+            goToProfile.putExtra("EMAIL", em);
+            startActivity(goToProfile);
         });
-
-        ImageButton imgButton = findViewById(R.id.imgButton);
-
-        Switch mySwitch = findViewById(R.id.switched);
-        mySwitch.setOnCheckedChangeListener((switchView, switchedOn) -> {
-            Snackbar.make(switchView, switchedOn ? R.string.switcedOn : R.string.switcedOff, Snackbar.LENGTH_LONG)
-                    .setAction(R.string.undo, v -> mySwitch.setChecked(!switchedOn))
-                    .show();
-
-        });
-
 
     }
+
+    private void saveData(String stringToSave) {
+        SharedPreferences.Editor editor = prefs.edit();
+        editor.putString("FileName", stringToSave);
+        editor.commit();
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        saveData(email.getText().toString());
+        Log.e(ACTIVITY_NAME, "In Function: " + "onPause()");
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        Log.e(ACTIVITY_NAME, "In Function: " + "onStart()");
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        Log.e(ACTIVITY_NAME, "In Function: " + "onResume()");
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        Log.e(ACTIVITY_NAME, "In Function: " + "onStop()");
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        Log.e(ACTIVITY_NAME, "In Function: " + "onDestroy()");
+    }
+
 }

@@ -15,4 +15,22 @@
     <string name="switchName">"Daar / Demi"</string>
     <string name="type_here">"Ku qor halkan"</string>
     <string name="undo">"Ka noqo"</string>
+    <string name="login">"emaylka"</string>
+    <string name="type_your_password">"Ku qor lambarka sirta ah"</string>
+    <string name="type_email_here">"Ku qor emaylka"</string>
+    <string name="type_your_email_address">"Ku qor emaylka"</string>
+    <string name="enter_your_email_address">"Gali emailkaaga"</string>
+    <string name="your_profile">"astaan"</string>
+    <string name="your_name">"Magac"</string>
+    <string name="enter_your_name">"ku qor magac"</string>
+    <string name="your_email">"Ku qor emaylkaaga"</string>
+    <string name="enter_your_email">"Gali email"</string>
+    <string name="your_picture">"Kudar sawir"</string>
+    <string name="click_the_button_above_to_take_a_picture">"Dhagsii badhanka kore si aad sawir uqaato"</string>
+    <string name="message_send">"dir fariin"</string>
+    <string name="message_receive">"hel fariin"</string>
+    <string name="send">"dir"</string>
+    <string name="receive">"hel"</string>
+    <string name="go_to_chat">"u tag wada sheekaysiga"</string>
+
 </resources>
