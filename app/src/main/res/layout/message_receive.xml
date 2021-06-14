@@ -11,7 +11,7 @@
         android:layout_toLeftOf="@id/receiveImage"/>
     <ImageView
         android:id="@+id/receiveImage"
-        android:src="@drawable/row_recieve"
+        android:src="@drawable/row_receive"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"/>

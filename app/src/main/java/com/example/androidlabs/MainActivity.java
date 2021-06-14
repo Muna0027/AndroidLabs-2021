@@ -1,4 +1,4 @@
-package com.example.andriodlabs;
+package com.example.androidlabs;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -8,8 +8,12 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
-
+import android.widget.ImageButton;
+import android.widget.Switch;
+import android.widget.Toast;
+import com.google.android.material.snackbar.Snackbar;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -23,7 +27,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main_login);
 
         prefs = getSharedPreferences("FileName", Context.MODE_PRIVATE);
-        String savedString = prefs.getString("FileName", "");
+        String savedString = prefs.getString("FileName", "Please Enter your email");
 
         Button loginButton = findViewById(R.id.login);
         email = findViewById(R.id.email);

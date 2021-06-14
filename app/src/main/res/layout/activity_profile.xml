@@ -27,7 +27,7 @@
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="@string/enter_your_email"
+        android:hint="@string/enter_your_e_mail"
         android:inputType="textEmailAddress"
         android:id="@+id/profile_email"/>
     <TextView

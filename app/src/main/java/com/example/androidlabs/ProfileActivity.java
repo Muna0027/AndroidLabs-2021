@@ -1,6 +1,9 @@
-package com.example.andriodlabs;
+package com.example.androidlabs;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
 
 import android.content.Intent;
 import android.graphics.Bitmap;
@@ -13,10 +16,11 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 
 public class ProfileActivity extends AppCompatActivity {
-
+    private static final int REQUEST_IMAGE_CAPTURE = 1;
     public static final String ACTIVITY_NAME = "PROFILE_ACTIVITY";
     ImageView mImageButton;
     EditText emailEditText;
+    Button chatButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,19 +35,21 @@ public class ProfileActivity extends AppCompatActivity {
         emailEditText.setText(email);
 
         mImageButton = (ImageButton)findViewById(R.id.ImageButton);
+        Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
         mImageButton.setOnClickListener(e -> {
-            dispatchTakePictureIntent();
+            if (takePictureIntent.resolveActivity(getPackageManager()) != null) {
+                startActivityForResult(takePictureIntent, REQUEST_IMAGE_CAPTURE);
+            }
         });
 
-    }
-    static final int REQUEST_IMAGE_CAPTURE = 1;
+        chatButton = (Button)findViewById(R.id.chat);
+        Intent chatIntent = new Intent();
+        chatButton.setOnClickListener( e -> {
+            Intent goToChatRoom = new Intent(ProfileActivity.this, ChatRoomActivity.class);
+            startActivity(goToChatRoom);
+        });
 
-    private void dispatchTakePictureIntent() {
-        Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-        if (takePictureIntent.resolveActivity(getPackageManager()) != null) {
-            startActivityForResult(takePictureIntent, REQUEST_IMAGE_CAPTURE);
-        }
-    }
+     }
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
