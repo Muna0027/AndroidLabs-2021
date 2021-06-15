@@ -14,8 +14,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="@string/type_email_here"
-        android:inputType="textEmailAddress"
-        android:id="@+id/email"/>
+        android:id="@+id/email"
+        android:inputType="textEmailAddress"/>
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -28,6 +28,6 @@
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/login"
-        android:id="@+id/login"/>
+        android:id="@+id/login"
+        android:text="@string/login"/>
 </LinearLayout>
