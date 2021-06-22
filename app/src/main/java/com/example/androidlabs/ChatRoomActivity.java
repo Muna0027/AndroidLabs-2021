@@ -158,7 +158,7 @@ public class ChatRoomActivity extends AppCompatActivity {
             return newView;
         }
 
-        //last week we returned (long) position. Now we return the object's database id that we get from line 71
+       
         public long getItemId(int position)
         {
             return getItem(position).getId();
@@ -168,32 +168,26 @@ public class ChatRoomActivity extends AppCompatActivity {
     private void loadDataFromDatabase() {
         //get a database connection:
         MyChatOpener dbOpener = new MyChatOpener(this);
-        database = dbOpener.getWritableDatabase(); //This calls onCreate() if you've never built the table before, or onUpgrade if the version here is newer
+        database = dbOpener.getWritableDatabase();
 
 
-        // We want to get all of the columns. Look at MyOpener.java for the definitions:
         String [] columns = {MyChatOpener.COLUMN_ID, MyChatOpener.COLUMN_MESSAGE, MyChatOpener.COLUMN_SENT_OR_RECEIVED};
-        //query all the results from the database:
         Cursor results = database.query(false, MyChatOpener.TABLE_NAME, columns, null, null, null, null, null, null);
 
-        //Now the results object has rows of results that match the query.
-        //find the column indices:
+
         int messageIndex = results.getColumnIndex(MyChatOpener.COLUMN_MESSAGE);
         int sentOrReceivedIndex = results.getColumnIndex(MyChatOpener.COLUMN_SENT_OR_RECEIVED);
         int idColIndex = results.getColumnIndex(MyChatOpener.COLUMN_ID);
 
-        //iterate over the results, return true if there is a next item:
         while(results.moveToNext())
         {
             String message = results.getString(messageIndex);
             long id = results.getLong(idColIndex);
             boolean sentOrReceived = results.getInt(sentOrReceivedIndex) != 0;
 
-            //add the new Contact to the array list:
             messageList.add(new Message(message, id, sentOrReceived));
         }
         printCursor(results);
-        //At this point, the contactsList array has loaded every row from the cursor.
     }
 
     @Override

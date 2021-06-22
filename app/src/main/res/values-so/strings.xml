@@ -32,5 +32,6 @@
     <string name="send">"dir"</string>
     <string name="receive">"hel"</string>
     <string name="go_to_chat">"u tag wada sheekaysiga"</string>
+    <string name="weather_forecast">Saadaasha hawada</string>
 
 </resources>

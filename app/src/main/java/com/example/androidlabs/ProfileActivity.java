@@ -1,9 +1,6 @@
 package com.example.androidlabs;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.Fragment;
 
 import android.content.Intent;
 import android.graphics.Bitmap;
@@ -20,7 +17,7 @@ public class ProfileActivity extends AppCompatActivity {
     public static final String ACTIVITY_NAME = "PROFILE_ACTIVITY";
     ImageView mImageButton;
     EditText emailEditText;
-    Button chatButton;
+    Button chatButton, weatherButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,7 +31,7 @@ public class ProfileActivity extends AppCompatActivity {
         String email = fromMain.getStringExtra("EMAIL");
         emailEditText.setText(email);
 
-        mImageButton = (ImageButton)findViewById(R.id.ImageButton);
+        mImageButton = findViewById(R.id.ImageButton);
         Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
         mImageButton.setOnClickListener(e -> {
             if (takePictureIntent.resolveActivity(getPackageManager()) != null) {
@@ -42,11 +39,18 @@ public class ProfileActivity extends AppCompatActivity {
             }
         });
 
-        chatButton = (Button)findViewById(R.id.chat);
+        chatButton = findViewById(R.id.chat);
         Intent chatIntent = new Intent();
         chatButton.setOnClickListener( e -> {
             Intent goToChatRoom = new Intent(ProfileActivity.this, ChatRoomActivity.class);
             startActivity(goToChatRoom);
+        });
+
+        weatherButton = findViewById(R.id.weather);
+        Intent weatherIntent = new Intent();
+        weatherButton.setOnClickListener( e -> {
+            Intent goToWeatherForecast = new Intent(ProfileActivity.this, WeatherForecastActivity.class);
+            startActivity(goToWeatherForecast);
         });
 
      }
