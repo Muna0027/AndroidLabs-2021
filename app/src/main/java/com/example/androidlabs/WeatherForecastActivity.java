@@ -46,8 +46,8 @@ public class WeatherForecastActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_weather_forecast);
-        progressBar = findViewById(R.id.pBar);
-        progressBar.setVisibility(View.VISIBLE);
+        //progressBar = findViewById(R.id.pBar);
+        //progressBar.setVisibility(View.VISIBLE);
 
         ForecastQuery forecastQuery = new ForecastQuery();
         forecastQuery.execute("http://api.openweathermap.org/data/2.5/weather?q=ottawa,ca&APPID=7e943c97096a9784391a981c4d878b22&mode=xml&units=metric");
@@ -59,20 +59,24 @@ public class WeatherForecastActivity extends AppCompatActivity {
         protected String doInBackground(String... args) {
             Log.e("doInBackground", "First Line");
             try {
+                //create a URL object of what server to contact:
                 URL url = new URL(args[0]);
 
+                //open the connection
                 HttpURLConnection urlConnection = (HttpURLConnection) url.openConnection();
-;
+
                 InputStream response = urlConnection.getInputStream();
 
+                //From part 3: slide 19
                 XmlPullParserFactory factory = XmlPullParserFactory.newInstance();
                 factory.setNamespaceAware(false);
                 XmlPullParser xpp = factory.newPullParser();
                 xpp.setInput(response, "UTF-8");
 
+                //From part 3, slide 20
                 String parameter = null;
 
-                int eventType = xpp.getEventType();
+                int eventType = xpp.getEventType(); //The parser is currently at START_DOCUMENT
 
                     while (eventType != XmlPullParser.END_DOCUMENT) {
                         if (eventType == XmlPullParser.START_TAG) {
@@ -118,7 +122,7 @@ public class WeatherForecastActivity extends AppCompatActivity {
                         URL uVURL = new URL("http://api.openweathermap.org/data/2.5/uvi?appid=7e943c97096a9784391a981c4d878b22&lat=45.348945&lon=-75.759389");
                         HttpURLConnection UVConnection = (HttpURLConnection) uVURL.openConnection();
                         response = UVConnection.getInputStream();
-
+                        
                         BufferedReader reader = new BufferedReader(new InputStreamReader(response, "UTF-8"), 8);
                         StringBuilder sB = new StringBuilder();
 
@@ -127,7 +131,7 @@ public class WeatherForecastActivity extends AppCompatActivity {
                             sB.append(line + "\n");
                         }
                         String result = sB.toString();
-                        
+
                         JSONObject jObject = new JSONObject(result);
                         uV = String.valueOf(jObject.getDouble("value"));
                         Log.e("AsyncTask", "Found UV: " + uV);
@@ -140,8 +144,8 @@ public class WeatherForecastActivity extends AppCompatActivity {
         @Override
         protected void onProgressUpdate(Integer... values) {
             Log.e("onProgressUpdate", "First Line");
-            progressBar.setVisibility(View.VISIBLE);
-            progressBar.setProgress(values[0]);
+            //progressBar.setVisibility(View.VISIBLE);
+            //progressBar.setProgress(values[0]);
         }
 
         @Override
@@ -158,7 +162,7 @@ public class WeatherForecastActivity extends AppCompatActivity {
             maximumTemp.setText(maximumTemp.getText() + " " + maxTemp);
             UVRating.setText(UVRating.getText() + " " + uV);
             weatherImage.setImageBitmap(image);
-            progressBar.setVisibility(View.INVISIBLE);
+            //progressBar.setVisibility(View.INVISIBLE);
         }
 
         private boolean fileExistence(String fileName) {
