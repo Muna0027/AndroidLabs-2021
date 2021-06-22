@@ -2,7 +2,11 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:layout_marginTop="27dp"
+    android:layout_marginBottom="27dp"
+    android:layout_marginLeft="48dp"
+    android:layout_marginRight="48dp">
 
     <TextView
         android:layout_width="match_parent"
@@ -18,7 +22,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="@string/enter_your_name"
-        android:inputType="textPersonName"/>
+        android:id="@+id/name"
+        android:inputType="textPersonName"
+        android:nextFocusDown="@id/profile_email"/>
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -27,9 +33,11 @@
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="@string/enter_your_email"
+        android:hint="@string/enter_your_e_mail"
         android:inputType="textEmailAddress"
-        android:id="@+id/profile_email"/>
+        android:id="@+id/profile_email"
+        android:nextFocusDown="@id/ImageButton"
+        android:nextFocusUp="@id/name"/>
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -38,19 +46,24 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/ImageButton"
-        android:src="@android:drawable/picture_frame"/>
+        android:src="@android:drawable/picture_frame"
+        android:nextFocusDown="@id/chat"
+        android:nextFocusUp="@id/profile_email"/>
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/click_the_button_above_to_take_a_picture"/>
+        android:text="@string/click_the_button_above_to_take_a_picture" />
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/go_to_chat"
-        android:id="@+id/chat"/>
+        android:id="@+id/chat"
+        android:nextFocusDown="@id/weather"
+        android:nextFocusUp="@id/ImageButton"/>
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/weather_forecast"
-        android:id="@+id/weather"/>
+        android:id="@+id/weather"
+        android:nextFocusUp="@id/chat"/>
 </LinearLayout>
