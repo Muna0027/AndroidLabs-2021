@@ -1,9 +1,10 @@
-package com.example.androidlabs;
+    package com.example.androidlabs;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.ContentValues;
+import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
@@ -28,6 +29,7 @@ public class ChatRoomActivity extends AppCompatActivity {
     MyOwnAdapter myAdapter;
     MyChatOpener chatOpener;
     SQLiteDatabase database;
+    Boolean isTablet;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,8 +48,22 @@ public class ChatRoomActivity extends AppCompatActivity {
         myAdapter = new MyOwnAdapter();
         messageListView.setAdapter(myAdapter);
         ContentValues contentValues = new ContentValues();
+        isTablet = findViewById(R.id.chat_frame_layout) != null;
 
-        messageListView.setOnItemClickListener(( parent,  view,  position,  id) -> showMessage( position ));
+        messageListView.setOnItemClickListener(( parent,  view,  position,  id) -> {
+            if (isTablet) {
+                DetailsFragment fragment = new DetailsFragment();
+                fragment.setArguments(new Bundle());
+                getSupportFragmentManager()
+                        .beginTransaction()
+                        .replace(R.id.id_fragment_field, fragment)
+                        .commit();
+            } else {
+                Intent nextActivity = new Intent(ChatRoomActivity.this, EmptyActivity.class);
+                nextActivity.putExtras(new Bundle()); //send data to next activity
+                startActivity(nextActivity); //make the transition
+            }
+        });
 
         sendButton.setOnClickListener( click -> {
             String sendMessage = messageEntry.getText().toString();
@@ -82,6 +98,11 @@ public class ChatRoomActivity extends AppCompatActivity {
             }
         });
 
+        if (isTablet) {
+
+        } else {
+
+        }
 
     }
 

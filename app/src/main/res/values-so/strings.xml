@@ -33,5 +33,8 @@
     <string name="receive">"hel"</string>
     <string name="go_to_chat">"u tag wada sheekaysiga"</string>
     <string name="weather_forecast">Saadaasha hawada</string>
-
+    <string name="hello_blank_fragment">Salaan jajab madhan</string>
+    <string name="Hide">Qari</string>
+    <string name="ID">Aqoonsi</string>
+    <string name="Message">Fariin</string>
 </resources>
