@@ -38,6 +38,6 @@
             android:layout_alignParentBottom="true"
             android:id="@+id/hideButton"
             android:text="Hide" />
-    </ RelativeLayout>
+    </RelativeLayout>
 
 </FrameLayout>

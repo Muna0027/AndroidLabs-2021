@@ -10,6 +10,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.CheckBox;
+import android.widget.TextView;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -64,6 +66,11 @@ public class DetailsFragment extends Fragment {
                              Bundle savedInstanceState) {
 
         View newView = getLayoutInflater().inflate(R.layout.fragment_details, container, false);
+
+        Bundle b = getArguments();
+        ((TextView) newView.findViewById(R.id.message)).setText(b.getString(ChatRoomActivity.MESSAGE_BODY));
+        ((TextView) newView.findViewById(R.id.message_fragment)).setText("ID=" + String.valueOf(b.getLong(ChatRoomActivity.MESSAGE_ID)));
+        ((CheckBox) newView.findViewById(R.id.frame_check)).setChecked(b.getBoolean(ChatRoomActivity.MESSAGE_IS_SENT));
 
         Button hideButton = newView.findViewById(R.id.hideButton);
         hideButton.setOnClickListener(e -> {

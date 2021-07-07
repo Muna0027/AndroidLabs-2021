@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.ContentValues;
 import android.content.Intent;
+import androidx.fragment.app.Fragment;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
@@ -24,6 +25,9 @@ import java.util.Arrays;
 
 public class ChatRoomActivity extends AppCompatActivity {
 
+    public static final String MESSAGE_BODY = "Message";
+    public static final String MESSAGE_ID = "MessageId";
+    public static final String MESSAGE_IS_SENT = "MessageIsSent";
     ArrayList<Message> messageList = new ArrayList<>();
     int positionClicked = 0;
     MyOwnAdapter myAdapter;
@@ -51,16 +55,20 @@ public class ChatRoomActivity extends AppCompatActivity {
         isTablet = findViewById(R.id.chat_frame_layout) != null;
 
         messageListView.setOnItemClickListener(( parent,  view,  position,  id) -> {
+
+            Message m = messageList.get(position);
+            Bundle b = new Bundle();
+            b.putString(MESSAGE_BODY, m.message);
+            b.putLong(MESSAGE_ID, m.id);
+            b.putBoolean(MESSAGE_IS_SENT, m.isSent);
+
             if (isTablet) {
                 DetailsFragment fragment = new DetailsFragment();
-                fragment.setArguments(new Bundle());
-                getSupportFragmentManager()
-                        .beginTransaction()
-                        .replace(R.id.id_fragment_field, fragment)
-                        .commit();
+                fragment.setArguments(b);
+                getSupportFragmentManager().beginTransaction().replace(R.id.chat_frame_layout, fragment).commit();
             } else {
-                Intent nextActivity = new Intent(ChatRoomActivity.this, EmptyActivity.class);
-                nextActivity.putExtras(new Bundle()); //send data to next activity
+                Intent nextActivity = new Intent(this, EmptyActivity.class);
+                nextActivity.putExtras(b); //send data to next activity
                 startActivity(nextActivity); //make the transition
             }
         });
@@ -117,6 +125,12 @@ public class ChatRoomActivity extends AppCompatActivity {
                 .setNegativeButton("Delete", (click, b) -> {
                     messageList.remove(position); //remove the contact from contact list
                     deleteMessage(selectedMessage);
+
+                    Fragment fragment = getSupportFragmentManager().findFragmentById(R.id.chat_frame_layout);
+                    if (fragment != null) {
+                        getSupportFragmentManager().beginTransaction().remove(fragment).commit();
+                    }
+
                     myAdapter.notifyDataSetChanged(); //there is one less item so update the list
                 })
                 .setNeutralButton("dismiss", (click, b) -> { })

@@ -50,7 +50,7 @@ public class WeatherForecastActivity extends AppCompatActivity {
         progressBar.setVisibility(View.VISIBLE);
 
         ForecastQuery forecastQuery = new ForecastQuery();
-        forecastQuery.execute("http://api.openweathermap.org/data/2.5/weather?q=ottawa,ca&APPID=7e943c97096a9784391a981c4d878b22&mode=xml&units=metric");
+        forecastQuery.execute("https://api.openweathermap.org/data/2.5/weather?q=ottawa,ca&APPID=7e943c97096a9784391a981c4d878b22&mode=xml&units=metric");
     }
 
     public class ForecastQuery extends AsyncTask<String, Integer, String> {
