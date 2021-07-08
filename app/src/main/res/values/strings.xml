@@ -36,6 +36,12 @@
     <string name="Hide">Hide</string>
     <string name="ID">ID</string>
     <string name="Message">Message</string>
+    <string name="open">open</string>
+    <string name="close">close</string>
+    <string name="search_item">search</string>
+    <string name="mail_item">mail</string>
+    <string name="help_item">help</string>
+    <string name="toolbar_btn">ToolBar</string>
 
 
 </resources>

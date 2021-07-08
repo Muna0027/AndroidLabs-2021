@@ -37,4 +37,9 @@
     <string name="Hide">Qari</string>
     <string name="ID">Aqoonsi</string>
     <string name="Message">Fariin</string>
+    <string name="open">Fuur</string>
+    <string name="close">Xiid</string>
+    <string name="search_item">sheyga raadinta</string>
+    <string name="mail_item">sheyga boostada</string>
+    <string name="help_item">caawinta sheyga</string>
 </resources>

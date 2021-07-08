@@ -47,7 +47,7 @@ public class WeatherForecastActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_weather_forecast);
         progressBar = findViewById(R.id.pBar);
-        progressBar.setVisibility(View.VISIBLE);
+        progressBar.setVisibility(View.VISIBLE);    
 
         ForecastQuery forecastQuery = new ForecastQuery();
         forecastQuery.execute("https://api.openweathermap.org/data/2.5/weather?q=ottawa,ca&APPID=7e943c97096a9784391a981c4d878b22&mode=xml&units=metric");
